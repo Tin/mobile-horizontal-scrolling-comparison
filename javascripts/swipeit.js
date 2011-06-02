@@ -62,7 +62,7 @@ $.fn.swipeIt = function() {
         }
 
         var currentXPositionOf = function(element) {
-            match = /\w+\(([\+\-]?\d+)px,/g.exec(el.style.webkitTransform)
+            match = /\w+\(([\+\-]?\d+)px,/g.exec(element.style.webkitTransform)
             if (match) {
                 return parseInt(match[1]);
             } else {
