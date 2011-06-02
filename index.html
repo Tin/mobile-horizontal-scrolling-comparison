@@ -15,11 +15,26 @@
     <script type="text/javascript" src="javascripts/swipeit.js"></script>
     <script type="text/javascript" src="javascripts/gswipe.js"></script>
     <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+      }
+      section h2 {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
+        margin: 0;
+        margin-left: 0.5rem;
+        line-height: 1;
+      }
       .slides_wrapper {
         overflow: hidden;
         width: 1000px;
         height: 150px;
-        margin: 1em;
+        margin: 0.5em 0.5em 1.5em 0.5em;
         border: 5px solid black;
       }
       .slides {
@@ -48,7 +63,8 @@
     </style>
   </head>
   <body id="scroll-test-body">
-    <div id="screenshots-1">
+    <section id="screenshots-1">
+      <h2>Scrollability</h2>
       <div class="slides_wrapper slides_wrapper_flex">
         <ul class="slides scrollable horizontal">
           <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
@@ -58,8 +74,9 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
-    </div>
-    <div id="screenshots-2">
+    </section>
+    <section id="screenshots-2">
+      <h2>swipeIt</h2>
       <div class="slides_wrapper slides_wrapper_flex">
         <ul class="slides">
           <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
@@ -69,8 +86,9 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
-    </div>
-    <div id="screenshots-3">
+    </section>
+    <section id="screenshots-3">
+      <h2>gSwipe, google image search style swipe</h2>
       <div id="screenshots-3-wrapper" class="slides_wrapper slides_wrapper_flex">
         <ul id="screenshots-3-slides" class="slides fast-transform">
           <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
@@ -80,8 +98,9 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
-    </div>
-    <div id="screenshots-4">
+    </section>
+    <section id="screenshots-4">
+      <h2>iScroll</h2>
       <div id="screenshots-4-wrapper" class="slides_wrapper">
         <ul id="screenshots-4-slides" class="slides" style="width: 2500px">
           <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
@@ -91,7 +110,7 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
-    </div>
+    </section>
     <script type="text/javascript" charset="utf-8">
       $('#screenshots-2 .slides').swipeIt();
       $('#screenshots-3 .slides').gSwipe({marginInSlides: 4});
