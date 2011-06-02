@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport">
+    <title>Scroll test page</title>
+    <script type="text/javascript" charset="utf-8">
+      window.__of_time = function() {
+      };
+    </script>
+    <script type="text/javascript" src="javascripts/jquery-1.6.1.js"></script>
+    <script type="text/javascript" src="javascripts/scrollability.js"></script>
+    <script type="text/javascript" src="javascripts/iscroll.js"></script>
+    <script type="text/javascript" src="javascripts/swipeit.js"></script>
+    <script type="text/javascript" src="javascripts/gswipe.js"></script>
+    <style type="text/css" media="screen">
+      .slides_wrapper {
+        overflow: hidden;
+        width: 1000px;
+        height: 150px;
+        margin: 1em;
+        border: 5px solid black;
+      }
+      .slides {
+        list-style: none;
+        width: 3000px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        -webkit-perspective: 1000;
+        -webkit-backface-visibility: hidden;
+      }
+      .slide {
+        display: inline-block;
+        margin: 4px 0 4px 4px;
+      }
+      .slides_wrapper_flex .slides {
+        width: auto;
+        display: -webkit-box;
+        -webkit-box-align: stretch;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: start;
+      }
+      .slides_wrapper_flex .slide {
+        display: block;
+      }
+    </style>
+  </head>
+  <body id="scroll-test-body">
+    <div id="screenshots-1">
+      <div class="slides_wrapper slides_wrapper_flex">
+        <ul class="slides scrollable horizontal">
+          <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 4" src="images/4.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
+        </ul>
+      </div>
+    </div>
+    <div id="screenshots-2">
+      <div class="slides_wrapper slides_wrapper_flex">
+        <ul class="slides">
+          <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 4" src="images/4.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
+        </ul>
+      </div>
+    </div>
+    <div id="screenshots-3">
+      <div id="screenshots-3-wrapper" class="slides_wrapper slides_wrapper_flex">
+        <ul id="screenshots-3-slides" class="slides fast-transform">
+          <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 4" src="images/4.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
+        </ul>
+      </div>
+    </div>
+    <div id="screenshots-4">
+      <div id="screenshots-4-wrapper" class="slides_wrapper">
+        <ul id="screenshots-4-slides" class="slides" style="width: 2500px">
+          <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 4" src="images/4.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      $('#screenshots-2 .slides').swipeIt();
+      $('#screenshots-3 .slides').gSwipe({marginInSlides: 4});
+      var myScroll = new iScroll('screenshots-4-wrapper', {hScroll: true, vScroll: false});
+    </script>
+  </body>
+</html>
