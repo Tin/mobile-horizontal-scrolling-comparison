@@ -155,6 +155,7 @@ $.fn.gSwipe = function(options) {
             return;
             // will not trigger swipe in multi-touch
         }
+        animator.stop();
         var touch = isTouch ? event.targetTouches[0] : event;
         this.originalX = touch.pageX;
         this.deltaX = 0;
