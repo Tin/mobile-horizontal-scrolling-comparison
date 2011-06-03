@@ -41,8 +41,13 @@ $.fn.gSwipe = function(options) {
             '-webkit-transform:translate3d(' + position + 'px, 0, 0);'
             );
         };
-        this.move = function(direction) {
+        this.move = function(direction, forced) {
+            var oldSlideIndex = currentSlideIndex;
             direction > 0 ? this.next() : this.prev();
+            if (!forced && oldSlideIndex === currentSlideIndex) {
+                // don't move when index is not changed
+                return false;
+            }
             var hiddenSlides = slides.slice(0, currentSlideIndex);
             var position = 0;
             for (var index = 0; index < hiddenSlides.length; index++) {
@@ -67,10 +72,14 @@ $.fn.gSwipe = function(options) {
                 animator.moveTo(position, callback);
             }
         };
+        this.index = function() {
+            return currentSlideIndex;
+        }
+        this.move(-1, true);
     }
-    
+
     var Animator = function(element, steps) {
-        var inAnimation = false, defaultSteps = 50, self = this;
+        var inAnimation = false, self = this;
 
         var requestAnimationFrame = (function() {
             var poormansRAF = function(animate) {
@@ -83,20 +92,20 @@ $.fn.gSwipe = function(options) {
             var easeOutFactor = step_index === steps ? 1: 1 - Math.pow(2, -10 * step_index / steps); // logarithmic curve
             return originalPosition + positionDelta * easeOutFactor;
         }
-        
+
         function currentXPositionOf(element) {
-            match = /\w+\(([\+\-]?\d+)px,/g.exec(element.style.webkitTransform);
+            match = /\w+\(([\+\-]?[\d.]+)px,/g.exec(element.style.webkitTransform);
             if (match) {
                 return parseInt(match[1]);
             } else {
                 return 0;
             }
         }
-        
+
         function moveToPosition(targetPosition) {
             element.style.webkitTransform = 'translate3d(' + targetPosition + 'px, 0, 0)';
         }
-        
+
         this.callback = null;
 
         this.moveTo = function(targetPosition, callback) {
@@ -106,11 +115,6 @@ $.fn.gSwipe = function(options) {
             var step_index = 0;
             var initPosition = currentXPositionOf(element);
             var moveDelta = targetPosition - initPosition;
-
-            steps = steps ? steps: defaultSteps;
-            if (Math.abs(moveDelta) < steps) {
-                steps = Math.floor(Math.abs(moveDelta));
-            }
 
             var animate = function() {
                 if (step_index < steps) {
@@ -133,7 +137,7 @@ $.fn.gSwipe = function(options) {
             inAnimation = true;
             requestAnimationFrame(animate);
         }
-        
+
         this.stop = function() {
             if (inAnimation) {
                 if ($.isFunction(this.callback)) {
@@ -145,8 +149,8 @@ $.fn.gSwipe = function(options) {
         };
     }
 
-    var slides = new Slides();
     var animator = new Animator(element[0], animationSteps);
+    var slides = new Slides();
 
     var startListener = function() {
         if (isTouch && event.targetTouches.length !== 1) {
@@ -175,5 +179,6 @@ $.fn.gSwipe = function(options) {
         }
     }
 
+    element.unbind(start);
     element.bind(start, startListener);
 }
