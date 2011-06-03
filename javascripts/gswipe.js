@@ -8,7 +8,7 @@ $.fn.gSwipe = function(options) {
     // pixels
     marginInSlides = options.marginInSlides || 8;
     minimalMovePixels = options.minimalMovePixels || 50;
-    animationSteps = options.animationSteps || 50;
+    animationSteps = options.animationSteps || 30;
     if (options.changeOpacity === undefined) {
         changeOpacity = true;
     } else {
@@ -113,7 +113,6 @@ $.fn.gSwipe = function(options) {
             }
 
             var animate = function() {
-                console.log('animate', step_index, steps)
                 if (step_index < steps) {
                     step_index += 1;
                     var positionX = easeOut(step_index, initPosition, moveDelta, steps);
@@ -172,7 +171,7 @@ $.fn.gSwipe = function(options) {
         if (Math.abs(deltaX) > minimalMovePixels) {
             slides.move(deltaX < 0 ? 1: -1);
             this.started = false;
-            element.unbind(move, moveListener);
+            element.unbind(move);
         }
     }
 

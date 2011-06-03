@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport">
+    <title>Scroll test page</title>
+    <script type="text/javascript" charset="utf-8">
+      window.__of_time = function() {
+      };
+    </script>
+    <script type="text/javascript" src="javascripts/jquery-1.6.1.js"></script>
+    <script type="text/javascript" src="javascripts/gswipe.js"></script>
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+      }
+      section h2 {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
+        margin: 0;
+        margin-left: 0.5rem;
+        line-height: 1;
+      }
+      .slides_wrapper {
+        overflow: hidden;
+        width: 1000px;
+        height: 328px;
+        margin: 0.5em 0.5em 1.5em 0.5em;
+        border: 5px solid black;
+      }
+      .slides {
+        list-style: none;
+        width: 3000px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        -webkit-perspective: 1000;
+        -webkit-backface-visibility: hidden;
+      }
+      .slide {
+        display: inline-block;
+        margin: 4px 0 4px 4px;
+      }
+      .slides_wrapper_flex .slides {
+        width: auto;
+        display: -webkit-box;
+        -webkit-box-align: stretch;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: start;
+      }
+      .slides_wrapper_flex .slide {
+        display: block;
+      }
+    </style>
+  </head>
+  <body id="scroll-test-body">
+    <section id="screenshots-1">
+      <h2>Scrollability</h2>
+      <div class="slides_wrapper slides_wrapper_flex">
+        <ul class="slides scrollable horizontal">
+          <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 4" src="images/4.png" draggable="false" width="480" height="320"></li>
+          <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
+        </ul>
+      </div>
+    </section>
+    <button id="bind">Bind gSwipe</button>
+    <script type="text/javascript" charset="utf-8">
+      $('#screenshots-1 .slides').gSwipe({marginInSlides: 4, animationSteps: 15 });
+      // $('#screenshots-1 .slides').gSwipe({marginInSlides: 4, animationSteps: 15 });
+      $('#bind').click(function(){
+        $('#screenshots-1 .slides').gSwipe({marginInSlides: 4, animationSteps: 15 });
+      });
+    </script>
+  </body>
+</html>
