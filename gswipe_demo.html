@@ -58,6 +58,27 @@
         display: block;
       }
     </style>
+    <style type="text/css" media="screen">
+      .slide_indicator {
+        position: relative;
+        bottom: 6px;
+        padding: 0;
+        left: 50%;
+        margin: 0;
+      }
+      .slide_indicator li {
+        height: 8px;
+        width: 8px;
+        background: #bababa;
+        -webkit-border-radius: 5px;
+        border: 1px solid #656565;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .slide_indicator .current {
+        background: #50ad5a;
+      }
+    </style>
   </head>
   <body id="scroll-test-body">
     <section id="screenshots-1">
@@ -71,6 +92,7 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
+      <ul class="slide_indicator"></ul>
     </section>
     <button id="bind">Bind gSwipe</button>
     <script type="text/javascript" charset="utf-8">
