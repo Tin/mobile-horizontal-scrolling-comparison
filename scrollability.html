@@ -10,7 +10,7 @@
       };
     </script>
     <script type="text/javascript" src="javascripts/jquery-1.6.1.js"></script>
-    <script type="text/javascript" src="javascripts/gswipe.js"></script>
+    <script type="text/javascript" src="javascripts/scrollability.js"></script>
     <style type="text/css" media="screen">
       body {
         margin: 0;
@@ -30,7 +30,7 @@
       .slides_wrapper {
         overflow: hidden;
         width: 1000px;
-        height: 328px;
+        height: 100px;
         margin: 0.5em 0.5em 1.5em 0.5em;
         border: 5px solid black;
       }
@@ -58,34 +58,12 @@
         display: block;
       }
     </style>
-    <style type="text/css" media="screen">
-      .slide_indicator {
-        position: relative;
-        bottom: 6px;
-        padding: 0;
-        left: 50%;
-        margin: 0;
-        width: 400px;
-      }
-      .slide_indicator li {
-        height: 8px;
-        width: 8px;
-        background: #bababa;
-        -webkit-border-radius: 5px;
-        border: 1px solid #656565;
-        display: inline-block;
-        margin-right: 6px;
-      }
-      .slide_indicator .current {
-        background: #50ad5a;
-      }
-    </style>
   </head>
   <body id="scroll-test-body">
     <section id="screenshots-1">
-      <h2>gSwipe</h2>
+      <h2>Scrollability</h2>
       <div class="slides_wrapper slides_wrapper_flex">
-        <ul class="slides">
+        <ul class="slides scrollable horizontal">
           <li class="slide"><img class="img" alt="screenshot 1" src="images/1.png" draggable="false" width="480" height="320"></li>
           <li class="slide"><img class="img" alt="screenshot 2" src="images/2.png" draggable="false" width="480" height="320"></li>
           <li class="slide"><img class="img" alt="screenshot 3" src="images/3.png" draggable="false" width="480" height="320"></li>
@@ -93,11 +71,6 @@
           <li class="slide"><img class="img" alt="screenshot 5" src="images/5.png" draggable="false" width="480" height="320"></li>
         </ul>
       </div>
-      <ul class="slide_indicator"></ul>
     </section>
-    <button id="bind">Bind gSwipe</button>
-    <script type="text/javascript" charset="utf-8">
-      $('#screenshots-1 .slides').gSwipe({marginInSlides: 4, animationSteps: 15 });
-    </script>
   </body>
 </html>
