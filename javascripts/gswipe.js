@@ -82,7 +82,6 @@
                         '-webkit-transition:-webkit-transform .2s ease,opacity 0.2s linear;-webkit-transform:translate3d(' + position + 'px, 0, 0);opacity: 0.8;' :
                         '-webkit-transition:-webkit-transform .2s ease;-webkit-transform:translate3d(' + position + 'px, 0, 0);'
                     );
-                    v
                     e.addEventListener('webkitTransitionEnd', fixAndroidWhiteSpaceBug, false);
                 } else {
                     if (changeOpacity) {
